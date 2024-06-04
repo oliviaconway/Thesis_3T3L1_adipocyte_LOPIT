@@ -1,0 +1,101 @@
+---
+title: "PMP_goCC"
+author: "Olivia Conway"
+date: "2024-06-03"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library("clusterProfiler")
+library("org.Mm.eg.db")
+```
+
+```{r}
+# PMP accession numbers all
+accessions_all <- as.character(read.csv(here("PMP/PMP_all_accessions.csv"), sep = ",", header = FALSE))
+```
+
+```{r}
+gocc_pmp_accessions_all <- enrichGO(gene = accessions_all,
+OrgDb = org.Mm.eg.db,
+keyType = "UNIPROT",
+ont = "CC",
+pAdjustMethod = "BH",
+pvalueCutoff = 0.05,
+qvalueCutoff = 0.05,
+readable = TRUE)
+
+## Check results
+gocc_pmp_accessions_all
+```
+
+```{r, fig.align='center', fig.width=8, fig.height=10}
+## Plot the results
+barplot(gocc_pmp_accessions_all,
+        x = "Count",
+        showCategory = 20,
+        font.size = 12,
+        label_format = 28,
+        colorBy = "p.adjust")
+```
+
+```{r}
+# PMP accession numbers all
+accessions_tm_glyc <- as.character(read.csv(here("PMP/PMP_accessions_TM_glyc.csv"), sep = ",", header = FALSE))
+```
+
+```{r}
+gocc_pmp_accessions_tm_glyc <- enrichGO(gene = accessions_tm_glyc,
+OrgDb = org.Mm.eg.db,
+keyType = "UNIPROT",
+ont = "CC",
+pAdjustMethod = "BH",
+pvalueCutoff = 0.05,
+qvalueCutoff = 0.05,
+readable = TRUE)
+
+## Check results
+gocc_pmp_accessions_tm_glyc
+```
+
+```{r, fig.align='center', fig.width=8, fig.height=10}
+## Plot the results
+barplot(gocc_pmp_accessions_tm_glyc,
+        x = "Count",
+        showCategory = 20,
+        font.size = 12,
+        label_format = 28,
+        colorBy = "p.adjust")
+```
+
+```{r}
+# PMP accession numbers all
+accessions_tm_Nglyc <- as.character(read.csv(here("PMP/PMP_accessions_TM_Nglyc.csv"), sep = ",", header = FALSE))
+```
+
+```{r}
+gocc_pmp_accessions_tm_Nglyc <- enrichGO(gene = accessions_tm_Nglyc,
+OrgDb = org.Mm.eg.db,
+keyType = "UNIPROT",
+ont = "CC",
+pAdjustMethod = "BH",
+pvalueCutoff = 0.05,
+qvalueCutoff = 0.05,
+readable = TRUE)
+
+## Check results
+gocc_pmp_accessions_tm_Nglyc
+```
+
+```{r, fig.align='center', fig.width=8, fig.height=10}
+## Plot the results
+barplot(gocc_pmp_accessions_tm_Nglyc,
+        x = "Count",
+        showCategory = 20,
+        font.size = 12,
+        label_format = 28,
+        colorBy = "p.adjust")
+```
+

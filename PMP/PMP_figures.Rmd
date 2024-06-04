@@ -1,0 +1,35 @@
+---
+title: "PMP_figures"
+author: "Olivia Conway"
+date: "2024-06-03"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+## Load packages
+```{r, eval=FALSE,message=FALSE, warning=FALSE}
+library(pRoloc)
+library(pRolocdata)
+library(MSnbase)
+library(pRolocGUI)
+library(shiny)
+library(shinydashboardPlus)
+library(dplyr)
+library(patchwork)
+library(ggplot2)
+library(gridExtra)
+library(colorspace)
+library(gplots)
+library(kableExtra)
+library(Rtsne)
+library(here)
+```
+
+```{r}
+# MSnSets with allocations
+load(here("data/adipocyte_lopit_b_ins_bandle_MSnSet.rda"))
+```
+
+
+
